@@ -1,19 +1,15 @@
 @echo off
 
-echo Setup environment
-REM Delete and recreate build directory
+REM Remove the build folder if it exists
 if exist build (
     rmdir /s /q build
 )
 mkdir build
 
-echo Compiling project
-REM Compile all .c files in src directory into a single executable
+REM Compile the source code
 gcc src\*.c -o build\fb
 
-echo Moving executable to debug
-REM Move the executable to the debug directory
-if not exist debug (
-    mkdir debug
+REM Copy the build to debug folder
+if exist debug (
+    xcopy build debug /s /e /y >nul
 )
-move build\fb.exe debug\fb.exe
