@@ -23,7 +23,16 @@ typedef enum{
     INST_JMP,
     INST_JMPIF,
     INST_EQU,
-    INST_NOT
+    INST_NOT,
+    INST_LT,
+    INST_GT,
+    INST_LTE,
+    INST_GTE,
+    INST_ADD,
+    INST_SUB,
+    INST_MUL,
+    INST_DIV,
+    INST_MOD
 } instructionType_t;
 
 // Instruction names
@@ -39,7 +48,16 @@ static const char *instructionNames[] = {
     [INST_JMP] = "jmp",
     [INST_JMPIF] = "jmpif",
     [INST_EQU] = "equ",
-    [INST_NOT] = "not"
+    [INST_NOT] = "not",
+    [INST_LT] = "lt",
+    [INST_GT] = "gt",
+    [INST_LTE] = "lte",
+    [INST_GTE] = "gte",
+    [INST_ADD] = "add",
+    [INST_SUB] = "sub",
+    [INST_MUL] = "mul",
+    [INST_DIV] = "div",
+    [INST_MOD] = "mod"
 };
 
 #endif // VALUES_H

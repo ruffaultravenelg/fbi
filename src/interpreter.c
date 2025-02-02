@@ -219,6 +219,50 @@ void executeFunction(function_t* fun) {
             case INST_NOT:
                 REGISTER_retval = !ARG1;
                 break;
+
+            case INST_LT:
+                REGISTER_retval = ARG1 < ARG2;
+                break;
+            
+            case INST_GT:
+                REGISTER_retval = ARG1 > ARG2;
+                break;
+            
+            case INST_LTE:
+                REGISTER_retval = ARG1 <= ARG2;
+                break;
+
+            case INST_GTE:
+                REGISTER_retval = ARG1 >= ARG2;
+                break;
+
+            case INST_ADD:
+                REGISTER_retval = ARG1 + ARG2;
+                break;
+
+            case INST_SUB:
+                REGISTER_retval = ARG1 - ARG2;
+                break;
+
+            case INST_MUL:
+                REGISTER_retval = ARG1 * ARG2;
+                break;
+
+            case INST_DIV:
+                // Check for division by zero
+                if (ARG2 == 0) {
+                    throwRuntimeError("Division by zero.\n");
+                }
+                REGISTER_retval = ARG1 / ARG2;
+                break;
+
+            case INST_MOD:
+                // Check for division by zero
+                if (ARG2 == 0) {
+                    throwRuntimeError("Division by zero.\n");
+                }
+                REGISTER_retval = ARG1 % ARG2;
+                break;
             
             default:
                 throwRuntimeError("Unknown instruction type (%d).\n", inst.type);
